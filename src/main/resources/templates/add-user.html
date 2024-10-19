@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+<h2>Add/Edit User</h2>
+<form th:action="@{/admin/save}" method="post">
+    <h3>User Information</h3>
+    <input type="hidden" th:field="*{user.id}" />
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{user.name}" /></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{user.email}" /></td>
+        </tr>
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" th:field="*{user.username}" /></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" th:field="*{user.password}" /></td>
+        </tr>
+    </table>
+
+    <h3>Role Information</h3>
+    <table>
+        <tr>
+            <td>Role Name:</td>
+            <td>
+                <select th:field="*{role.roleName}">
+                    <option value="USER">USER</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+
+    <input type="submit" value="Save User and Role" />
+</form>
+</body>
+</html>
