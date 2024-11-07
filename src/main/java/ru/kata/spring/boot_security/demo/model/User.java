@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+
 @Entity
 @Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "accountNonLocked", "enabled", "accountNonExpired", "credentialsNonExpired"})
@@ -105,8 +106,16 @@ public class User implements UserDetails {
         return true;
     }
 
+
     @Override
     public String toString() {
-        return "ID: " + id + ", UserName: " + username + ", Password: " + password;
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }
