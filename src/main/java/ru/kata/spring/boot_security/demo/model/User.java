@@ -24,14 +24,14 @@ public class User implements UserDetails {
     private String username;
     private String password;
 
-    @JsonManagedReference
-    @ManyToMany(fetch = FetchType.LAZY)
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-
     private List<Role> roles;
 
     public User() {
@@ -106,6 +106,17 @@ public class User implements UserDetails {
         return true;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     @Override
     public String toString() {

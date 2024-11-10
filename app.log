@@ -1,0 +1,225 @@
+2024-11-10 20:33:58.402  INFO 27824 --- [main] .s.b.d.SpringBootSecurityDemoApplication : Starting SpringBootSecurityDemoApplication using Java 17.0.8 on PK with PID 27824 (C:\Users\seymu\IdeaProjects\forKATA3-1-4\target\classes started by seymu in C:\Users\seymu\IdeaProjects\forKATA3-1-4)
+2024-11-10 20:33:58.404 DEBUG 27824 --- [main] .s.b.d.SpringBootSecurityDemoApplication : Running with Spring Boot v2.6.2, Spring v5.3.14
+2024-11-10 20:33:58.404  INFO 27824 --- [main] .s.b.d.SpringBootSecurityDemoApplication : No active profile set, falling back to default profiles: default
+2024-11-10 20:33:58.878  INFO 27824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-10 20:33:58.922  INFO 27824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces.
+2024-11-10 20:33:59.294  INFO 27824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-11-10 20:33:59.301  INFO 27824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-10 20:33:59.301  INFO 27824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-11-10 20:33:59.465  INFO 27824 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-10 20:33:59.469  INFO 27824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-10 20:33:59.469  INFO 27824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1031 ms
+2024-11-10 20:33:59.611  INFO 27824 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-10 20:33:59.651  INFO 27824 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2024-11-10 20:33:59.773  INFO 27824 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-11-10 20:33:59.851  INFO 27824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-10 20:34:00.099  INFO 27824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-10 20:34:00.124  INFO 27824 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-11-10 20:34:00.598  WARN 27824 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_roles drop foreign key FKh8ciramu9cc9q3qcqiv4ue8a6" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-2.6.2.jar:2.6.2]
+	at ru.kata.spring.boot_security.demo.SpringBootSecurityDemoApplication.main(SpringBootSecurityDemoApplication.java:12) ~[classes/:na]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'cats.user_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	... 35 common frames omitted
+
+2024-11-10 20:34:00.600  WARN 27824 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table user_roles drop foreign key FKhfh9dx7w3ubf1co1vdev94g3f" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:153) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.14.jar:5.3.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) ~[spring-boot-2.6.2.jar:2.6.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290) ~[spring-boot-2.6.2.jar:2.6.2]
+	at ru.kata.spring.boot_security.demo.SpringBootSecurityDemoApplication.main(SpringBootSecurityDemoApplication.java:12) ~[classes/:na]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'cats.user_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.3.Final.jar:5.6.3.Final]
+	... 35 common frames omitted
+
+2024-11-10 20:34:00.745  INFO 27824 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-11-10 20:34:00.752  INFO 27824 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-10 20:34:01.045  WARN 27824 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-10 20:34:01.384  INFO 27824 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67376bae, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e0c898c, org.springframework.security.web.header.HeaderWriterFilter@77acc95a, org.springframework.security.web.authentication.logout.LogoutFilter@4a0ee0ba, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4987142d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6c4e486e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6d6d81c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@73bcd9b4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37fd496a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c59cf66, org.springframework.security.web.session.SessionManagementFilter@75c3584e, org.springframework.security.web.access.ExceptionTranslationFilter@36e98434, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@17541204]
+2024-11-10 20:34:01.470 DEBUG 27824 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-11-10 20:34:01.520 DEBUG 27824 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2024-11-10 20:34:01.523  INFO 27824 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-11-10 20:34:01.541 DEBUG 27824 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-11-10 20:34:01.546 DEBUG 27824 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-11-10 20:34:01.643  INFO 27824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-11-10 20:34:01.650  INFO 27824 --- [main] .s.b.d.SpringBootSecurityDemoApplication : Started SpringBootSecurityDemoApplication in 3.549 seconds (JVM running for 4.066)
+2024-11-10 20:34:01.709  INFO 27824 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-10 20:34:01.709  INFO 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-10 20:34:01.709 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-11-10 20:34:01.709 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-11-10 20:34:01.709 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-11-10 20:34:01.710 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6a4d57b7
+2024-11-10 20:34:01.710 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7ddcd3d
+2024-11-10 20:34:01.710 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-11-10 20:34:01.710  INFO 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-10 20:34:09.936 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/admin/mvc", parameters={}
+2024-11-10 20:34:09.941 DEBUG 27824 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.MVCUserController#forUsers(Model)
+2024-11-10 20:34:09.957 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-10 20:34:10.139 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:10.183 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/script.js", parameters={}
+2024-11-10 20:34:10.187 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-10 20:34:10.218 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:10.241 DEBUG 27824 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/admin/rest/", parameters={}
+2024-11-10 20:34:10.241 DEBUG 27824 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/user/rest/", parameters={}
+2024-11-10 20:34:10.242 DEBUG 27824 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#usersAndCurrentUser()
+2024-11-10 20:34:10.242 DEBUG 27824 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forUser()
+2024-11-10 20:34:10.261 DEBUG 27824 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:10.272 DEBUG 27824 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFk (truncated)...]
+2024-11-10 20:34:10.299 DEBUG 27824 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:10.299 DEBUG 27824 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:34:10.305 DEBUG 27824 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:10.305 DEBUG 27824 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:10.308 DEBUG 27824 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/user/rest/", parameters={}
+2024-11-10 20:34:10.309 DEBUG 27824 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forUser()
+2024-11-10 20:34:10.315 DEBUG 27824 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:10.315 DEBUG 27824 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:34:10.316 DEBUG 27824 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:11.327 DEBUG 27824 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/admin/rest/2", parameters={}
+2024-11-10 20:34:11.328 DEBUG 27824 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forAdmin(Long)
+2024-11-10 20:34:11.341 DEBUG 27824 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:11.341 DEBUG 27824 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=2, name='Regular User', email='user@example.com', username='user', password='$2a$10$XUbFOa9t (truncated)...]
+2024-11-10 20:34:11.342 DEBUG 27824 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:11.350 DEBUG 27824 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : DELETE "/admin/rest/delete/2", parameters={}
+2024-11-10 20:34:11.351 DEBUG 27824 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#deleteUser(Long)
+2024-11-10 20:34:11.372 DEBUG 27824 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:11.372 DEBUG 27824 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [200 OK]
+2024-11-10 20:34:11.373 DEBUG 27824 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:11.377 DEBUG 27824 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/admin/rest/", parameters={}
+2024-11-10 20:34:11.377 DEBUG 27824 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#usersAndCurrentUser()
+2024-11-10 20:34:11.382 DEBUG 27824 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:11.383 DEBUG 27824 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFk (truncated)...]
+2024-11-10 20:34:11.384 DEBUG 27824 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:12.431 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/admin/mvc?id=2&id=2&name=Regular+User&username=user&email=user%40example.com&password=%242a%2410%24XUbFOa9tsg%2FPonOutC70Ju66KSE05NGqG0R.wT4dZuQEBugOOwKBa&role=USER", parameters={masked}
+2024-11-10 20:34:12.432 DEBUG 27824 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.MVCUserController#forUsers(Model)
+2024-11-10 20:34:12.433 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-10 20:34:12.438 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:12.468 DEBUG 27824 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/script.js", parameters={}
+2024-11-10 20:34:12.469 DEBUG 27824 --- [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-10 20:34:12.472 DEBUG 27824 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:12.510 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/admin/rest/", parameters={}
+2024-11-10 20:34:12.511 DEBUG 27824 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#usersAndCurrentUser()
+2024-11-10 20:34:12.514 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/user/rest/", parameters={}
+2024-11-10 20:34:12.515 DEBUG 27824 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forUser()
+2024-11-10 20:34:12.517 DEBUG 27824 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:12.517 DEBUG 27824 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFk (truncated)...]
+2024-11-10 20:34:12.518 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:12.520 DEBUG 27824 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:12.520 DEBUG 27824 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:34:12.522 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:34:12.523 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/user/rest/", parameters={}
+2024-11-10 20:34:12.523 DEBUG 27824 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forUser()
+2024-11-10 20:34:12.530 DEBUG 27824 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:34:12.530 DEBUG 27824 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:34:12.531 DEBUG 27824 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:23.074 DEBUG 27824 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/admin/rest/1", parameters={}
+2024-11-10 20:35:23.075 DEBUG 27824 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forAdmin(Long)
+2024-11-10 20:35:23.079 DEBUG 27824 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:35:23.079 DEBUG 27824 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:35:23.080 DEBUG 27824 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:28.455 DEBUG 27824 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/admin/mvc?id=1&id=1&name=Ad%D0%B2%D1%86min+User&username=ad%D1%86%D0%B2%D0%B9min&email=admin%40example.com&hiddenPassword=%242a%2410%24RZPwYFkfJkxyd47cZOPOLeMgsHbLtSK8zN7u1v5UPxSof2%2FBuTcQ2&password=%D1%86%D0%B9%D0%B2%D0%B2%D0%B9%D1%86%D0%B2%D0%B9%D1%86%D0%B2&roles=USER", parameters={masked}
+2024-11-10 20:35:28.455 DEBUG 27824 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.MVCUserController#forUsers(Model)
+2024-11-10 20:35:28.457 DEBUG 27824 --- [http-nio-8080-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.7, */*;q=0.8]
+2024-11-10 20:35:28.460 DEBUG 27824 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:28.495 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/script.js", parameters={}
+2024-11-10 20:35:28.496 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-11-10 20:35:28.500 DEBUG 27824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:28.530 DEBUG 27824 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/admin/rest/", parameters={}
+2024-11-10 20:35:28.530 DEBUG 27824 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#usersAndCurrentUser()
+2024-11-10 20:35:28.531 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/user/rest/", parameters={}
+2024-11-10 20:35:28.531 DEBUG 27824 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forUser()
+2024-11-10 20:35:28.535 DEBUG 27824 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:35:28.535 DEBUG 27824 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:35:28.536 DEBUG 27824 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:35:28.536 DEBUG 27824 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFk (truncated)...]
+2024-11-10 20:35:28.537 DEBUG 27824 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:28.537 DEBUG 27824 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:28.538 DEBUG 27824 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/user/rest/", parameters={}
+2024-11-10 20:35:28.539 DEBUG 27824 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to ru.kata.spring.boot_security.demo.controllers.RestUserController#forUser()
+2024-11-10 20:35:28.546 DEBUG 27824 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-11-10 20:35:28.546 DEBUG 27824 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [User{id=1, name='Admin User', email='admin@example.com', username='admin', password='$2a$10$RZPwYFkf (truncated)...]
+2024-11-10 20:35:28.547 DEBUG 27824 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-11-10 20:35:32.519  INFO 27824 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-10 20:35:32.520  INFO 27824 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2024-11-10 20:35:32.569  INFO 27824 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-10 20:35:32.575  INFO 27824 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

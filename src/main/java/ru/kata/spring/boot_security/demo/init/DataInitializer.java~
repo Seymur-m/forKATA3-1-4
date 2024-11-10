@@ -44,7 +44,9 @@ public class DataInitializer {
         user1.setPassword(passwordEncoder.encode("admin"));
         user1.setRoles(Arrays.asList(adminRole));
 
+
         userRepository.save(user1);
+
 
         User user2 = new User();
         user2.setName("Regular User");
@@ -53,8 +55,7 @@ public class DataInitializer {
         user2.setPassword(passwordEncoder.encode("user"));
         user2.setRoles(Arrays.asList(userRole));
 
+
         userRepository.save(user2);
     }
 }
-
-
