@@ -106,7 +106,9 @@
                                         </div>
 
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role (hold Ctrl or Cmd to select multiple)</label>
+                                            <label for="setUserRole" class="form-label text-center-custom"
+                                                   style="font-weight: bold;">Role (hold Ctrl or Cmd to select
+                                                multiple)</label>
                                             <select class="form-select" id="setUserRole" name="roles" multiple>
                                                 <option value="USER">USER</option>
                                                 <option value="ADMIN">ADMIN</option>
@@ -119,60 +121,60 @@
                                         </div>
                                     </form>
 
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            document.getElementById('userForm').addEventListener('submit', async function (event) {
-                                                event.preventDefault();
+<!--                                    <script>-->
+<!--                                        document.addEventListener('DOMContentLoaded', function () {-->
+<!--                                            document.getElementById('userForm').addEventListener('submit', async function (event) {-->
+<!--                                                event.preventDefault();-->
 
 
-                                                const user = {
-                                                    id: document.getElementById('userId').value,
-                                                    name: document.getElementById('setUserName').value,
-                                                    username: document.getElementById('setUserUsername').value,
-                                                    email: document.getElementById('setUserEmail').value,
-                                                    password: document.getElementById('setUserPassword').value,
-                                                    roles: [
-                                                        {
-                                                            roleName: document.getElementById('setUserRole').value
-                                                        }
-                                                    ]
-                                                };
+<!--                                                const user = {-->
+<!--                                                    id: document.getElementById('userId').value,-->
+<!--                                                    name: document.getElementById('setUserName').value,-->
+<!--                                                    username: document.getElementById('setUserUsername').value,-->
+<!--                                                    email: document.getElementById('setUserEmail').value,-->
+<!--                                                    password: document.getElementById('setUserPassword').value,-->
+<!--                                                    roles: [-->
+<!--                                                        {-->
+<!--                                                            roleName: document.getElementById('setUserRole').value-->
+<!--                                                        }-->
+<!--                                                    ]-->
+<!--                                                };-->
 
 
-                                                try {
-                                                    const response = await fetch('/admin/rest/save', {
-                                                        method: 'POST',
-                                                        headers: {
-                                                            'Content-Type': 'application/json'
-                                                        },
-                                                        body: JSON.stringify(user)
-                                                    });
+<!--                                                try {-->
+<!--                                                    const response = await fetch('/admin/rest/save', {-->
+<!--                                                        method: 'POST',-->
+<!--                                                        headers: {-->
+<!--                                                            'Content-Type': 'application/json'-->
+<!--                                                        },-->
+<!--                                                        body: JSON.stringify(user)-->
+<!--                                                    });-->
 
-                                                    if (response.ok) {
-                                                        const result = await response.json();
+<!--                                                    if (response.ok) {-->
+<!--                                                        const result = await response.json();-->
 
-                                                        const targetTab = document.querySelector('#home-tab');
-                                                        const bootstrapTab = new bootstrap.Tab(targetTab);
+<!--                                                        const targetTab = document.querySelector('#home-tab');-->
+<!--                                                        const bootstrapTab = new bootstrap.Tab(targetTab);-->
 
-                                                        document.getElementById('userId').value = '';
-                                                        document.getElementById('setUserName').value = '';
-                                                        document.getElementById('setUserUsername').value = '';
-                                                        document.getElementById('setUserEmail').value = '';
-                                                        document.getElementById('setUserPassword').value = '';
-                                                        document.getElementById('setUserRole').value = 'USER';
+<!--                                                        document.getElementById('userId').value = '';-->
+<!--                                                        document.getElementById('setUserName').value = '';-->
+<!--                                                        document.getElementById('setUserUsername').value = '';-->
+<!--                                                        document.getElementById('setUserEmail').value = '';-->
+<!--                                                        document.getElementById('setUserPassword').value = '';-->
+<!--                                                        document.getElementById('setUserRole').value = 'USER';-->
 
-                                                        updateUsers();
-                                                        bootstrapTab.show();
-                                                    } else {
-                                                        throw new Error('Ошибка при добавлении пользователя');
-                                                    }
-                                                } catch (error) {
-                                                    console.error('Произошла ошибка:', error);
-                                                    alert('Ошибка при добавлении пользователя. Проверьте данные и повторите попытку.');
-                                                }
-                                            });
-                                        });
-                                    </script>
+<!--                                                        updateUsers();-->
+<!--                                                        bootstrapTab.show();-->
+<!--                                                    } else {-->
+<!--                                                        throw new Error('Ошибка при добавлении пользователя');-->
+<!--                                                    }-->
+<!--                                                } catch (error) {-->
+<!--                                                    console.error('Произошла ошибка:', error);-->
+<!--                                                    alert('Ошибка при добавлении пользователя. Проверьте данные и повторите попытку.');-->
+<!--                                                }-->
+<!--                                            });-->
+<!--                                        });-->
+<!--                                    </script>-->
                                 </div>
                             </div>
                         </div>
@@ -240,12 +242,13 @@
                                placeholder="Password">
                     </div>
 
-                    <div class="mb-3 form-group-center"><label for="editUserRole" class="form-label text-center-custom"
-                                                               style="font-weight: bold;">Role</label> <select
-                            class="form-select" id="editUserRole" name="roles" multiple>
-                        <option value="USER">USER</option>
-                        <option value="ADMIN">ADMIN</option> <!-- Добавьте другие роли, если нужно -->
-                    </select>
+                    <div class="mb-3 form-group-center">
+                        <label for="editUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
+                        <select
+                                class="form-select" id="editUserRole" name="roles" multiple>
+                            <option value="USER">USER</option>
+                            <option value="ADMIN">ADMIN</option>
+                        </select>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -298,6 +301,7 @@
                         <input type="password" class="form-control custom-width" id="deleteUserPassword" name="password"
                                placeholder="Password" readonly>
                     </div>
+
 
                     <div class="mb-3 form-group-center">
                         <label for="deleteUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>

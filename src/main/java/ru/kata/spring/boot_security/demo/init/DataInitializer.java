@@ -1,5 +1,6 @@
 package ru.kata.spring.boot_security.demo.init;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -44,6 +45,7 @@ public class DataInitializer {
         user1.setPassword(passwordEncoder.encode("admin"));
         user1.setRoles(Arrays.asList(adminRole));
 
+        Hibernate.initialize(user1.getRoles());
         userRepository.save(user1);
 
         User user2 = new User();
@@ -53,6 +55,7 @@ public class DataInitializer {
         user2.setPassword(passwordEncoder.encode("user"));
         user2.setRoles(Arrays.asList(userRole));
 
+        Hibernate.initialize(user2.getRoles());
         userRepository.save(user2);
     }
 }

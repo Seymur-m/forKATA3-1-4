@@ -32,7 +32,7 @@ public class RestUserController {
     public User forUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
-        return (User) userServiceImpl.loadUserByUsername(userName);
+        return userServiceImpl.loadUserByUsername(userName);
     }
 
 
