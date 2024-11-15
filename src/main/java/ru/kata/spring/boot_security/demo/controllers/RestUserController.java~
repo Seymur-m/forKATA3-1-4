@@ -32,7 +32,7 @@ public class RestUserController {
     public User forUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
-        return userServiceImpl.loadUserByUsername(userName);
+        return (User) userServiceImpl.loadUserByUsername(userName);
     }
 
 
@@ -41,6 +41,8 @@ public class RestUserController {
         userServiceImpl.saveUserWithRole(user);
         return HttpStatus.OK;
     }
+
+
 
     @DeleteMapping("/admin/rest/delete/{id}")
     public HttpStatus deleteUser(@PathVariable Long id) {

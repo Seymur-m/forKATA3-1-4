@@ -8,6 +8,21 @@
 
     <script>
 
+        async function loadCurrentUser() {
+            try {
+                const response = await fetch('/user/rest/');
+                if (!response.ok) {
+                    throw new Error('Ошибка при получении данных пользователя');
+                }
+                const currentUser = await response.json();
+                document.getElementById('user-info').textContent = `${currentUser.email} with roles: ${currentUser.roles.map(role => role.roleName).join(', ')}`;
+
+                createCurrentUserTable(currentUser);
+            } catch (error) {
+                console.error('Произошла ошибка:', error);
+            }
+        }
+
         function createCurrentUserTable(user) {
             const tableBody = document.getElementById('current-user-table-body');
 
@@ -27,7 +42,6 @@
             loadCurrentUser();
         });
     </script>
-
 </head>
 <body>
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark text-white">

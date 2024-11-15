@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MVCUserController {
 
-    @GetMapping("/admink/mvc")
+    @GetMapping("/admin/mvc")
     public String forUsers(Model model) {
-        return "users";
+        return "/static/users";
     }
 
-    @GetMapping("/userk/mvc")
+    @GetMapping("/user/mvc")
     public String forUser() {
         return "user";
     }
