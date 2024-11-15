@@ -93,9 +93,9 @@ function createCurrentUserTable(user) {
     tableBody.appendChild(row);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadCurrentUser();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     loadCurrentUser();
+// });
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -153,52 +153,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-async function openDeleteModal(userId) {
-    try {
-        const response = await fetch(`/admin/rest/${userId}`);
-        const user = await response.json();
-
-        document.getElementById('deleteUserId').value = user.id;
-        document.getElementById('deleteUserIdReadOnly').value = user.id;
-        document.getElementById('deleteUserName').value = user.name;
-        document.getElementById('deleteUserUsername').value = user.username;
-        document.getElementById('deleteUserEmail').value = user.email;
-        document.getElementById('deleteUserPassword').value = user.password;
-        document.getElementById('deleteUserRole').value = user.roles[0].roleName;
-
-        $('#deleteUserModal').modal('show');
-    } catch (error) {
-        console.error('Ошибка при получении данных пользователя:', error);
-    }
-}
-document.getElementById('deleteUserForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const Id = document.getElementById('deleteUserId').value;
-
-    try {
-        const response = await fetch(`/admin/rest/delete/${Id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            $('#deleteUserModal').modal('hide');
-            const targetTab = document.querySelector('#home-tab');
-            const bootstrapTab = new bootstrap.Tab(targetTab);
-            updateUsers();
-            bootstrapTab.show();
-        } else {
-            throw new Error('Ошибка при обновлении пользователя');
-        }
-    } catch (error) {
-        console.error('Ошибка при обновлении пользователя:', error);
-        alert('Произошла ошибка. Попробуйте снова.');
-    }
-});
-
+// async function openDeleteModal(userId) {
+//     try {
+//         const response = await fetch(`/admin/rest/${userId}`);
+//         const user = await response.json();
+//
+//         document.getElementById('deleteUserId').value = user.id;
+//         document.getElementById('deleteUserIdReadOnly').value = user.id;
+//         document.getElementById('deleteUserName').value = user.name;
+//         document.getElementById('deleteUserUsername').value = user.username;
+//         document.getElementById('deleteUserEmail').value = user.email;
+//         document.getElementById('deleteUserPassword').value = user.password;
+//         document.getElementById('deleteUserRole').value = user.roles[0].roleName;
+//
+//         $('#deleteUserModal').modal('show');
+//     } catch (error) {
+//         console.error('Ошибка при получении данных пользователя:', error);
+//     }
+// }
+// document.getElementById('deleteUserForm').addEventListener('submit', async function (event) {
+//     event.preventDefault();
+//
+//     const Id = document.getElementById('deleteUserId').value;
+//
+//     try {
+//         const response = await fetch(`/admin/rest/delete/${Id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+//
+//         if (response.ok) {
+//             $('#deleteUserModal').modal('hide');
+//             const targetTab = document.querySelector('#home-tab');
+//             const bootstrapTab = new bootstrap.Tab(targetTab);
+//             updateUsers();
+//             bootstrapTab.show();
+//         } else {
+//             throw new Error('Ошибка при обновлении пользователя');
+//         }
+//     } catch (error) {
+//         console.error('Ошибка при обновлении пользователя:', error);
+//         alert('Произошла ошибка. Попробуйте снова.');
+//     }
+// });
+//
 
 
 
@@ -285,6 +285,6 @@ function createCurrentUserTable(user) {
     `;
     tableBody.appendChild(row);
 }
-document.addEventListener('DOMContentLoaded', () => {
-    loadCurrentUser();
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//     loadCurrentUser();
+// });
