@@ -26,8 +26,10 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav flex-column nav-pills me-3">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Admin</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
+                           role="tab" aria-controls="v-pills-home" aria-selected="true">Admin</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                           role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
                     </li>
                 </ul>
             </div>
@@ -35,22 +37,26 @@
 
         <div class="col-md-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                     aria-labelledby="v-pills-home-tab">
                     <h1>Admin Panel</h1>
                     <div class="card">
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Users table</a>
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                       aria-controls="home" aria-selected="true">Users table</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">New User</a>
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                       aria-controls="profile" aria-selected="false">New User</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                     aria-labelledby="home-tab">
                                     <h1>All Users</h1>
                                     <table class="table table-striped">
                                         <thead>
@@ -72,27 +78,36 @@
                                         <input type="hidden" id="userId"/>
 
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserName" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
-                                            <input type="text" class="form-control custom-width" id="setUserName" name="name" placeholder="Name">
+                                            <label for="setUserName" class="form-label text-center-custom"
+                                                   style="font-weight: bold;">Name</label>
+                                            <input type="text" class="form-control custom-width" id="setUserName"
+                                                   name="name" placeholder="Name">
                                         </div>
 
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserUsername" class="form-label text-center-custom" style="font-weight: bold;">Username</label>
-                                            <input type="text" class="form-control custom-width" id="setUserUsername" name="username" placeholder="UserName">
+                                            <label for="setUserUsername" class="form-label text-center-custom"
+                                                   style="font-weight: bold;">Username</label>
+                                            <input type="text" class="form-control custom-width" id="setUserUsername"
+                                                   name="username" placeholder="UserName">
                                         </div>
 
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
-                                            <input type="text" class="form-control custom-width" id="setUserEmail" name="email" placeholder="Email">
+                                            <label for="setUserEmail" class="form-label text-center-custom"
+                                                   style="font-weight: bold;">Email</label>
+                                            <input type="text" class="form-control custom-width" id="setUserEmail"
+                                                   name="email" placeholder="Email">
                                         </div>
 
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserPassword" class="form-label text-center-custom" style="font-weight: bold;">Password</label>
-                                            <input type="password" class="form-control custom-width" id="setUserPassword" name="password" placeholder="Password">
+                                            <label for="setUserPassword" class="form-label text-center-custom"
+                                                   style="font-weight: bold;">Password</label>
+                                            <input type="password" class="form-control custom-width"
+                                                   id="setUserPassword" name="password" placeholder="Password">
                                         </div>
 
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
+                                            <label for="setUserRole" class="form-label text-center-custom"
+                                                   style="font-weight: bold;">Role</label>
                                             <select class="form-select" id="setUserRole" name="role" multiple>
                                                 <option value="USER">USER</option>
                                                 <option value="ADMIN">ADMIN</option>
@@ -102,7 +117,6 @@
                                             <button type="submit" class="btn btn-success">Add new user</button>
                                         </div>
                                     </form>
-<!--                                    <script src="/static.js"></script>-->
                                 </div>
                             </div>
                         </div>
@@ -143,29 +157,36 @@
                 <form id="editUserForm">
                     <input type="hidden" id="editUserId" name="id"/>
                     <div class="mb-3 form-group-center">
-                        <label for="editUserIdReadOnly" class="form-label text-center-custom" style="font-weight: bold;">ID</label>
+                        <label for="editUserIdReadOnly" class="form-label text-center-custom"
+                               style="font-weight: bold;">ID</label>
                         <input type="text" class="form-control custom-width" id="editUserIdReadOnly" name="id" readonly>
                     </div>
                     <div class="mb-3 form-group-center">
-                        <label for="editUserName" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
-                        <input type="text" class="form-control custom-width" id="editUserName" name="name" placeholder="Name">
+                        <label for="editUserName" class="form-label text-center-custom"
+                               style="font-weight: bold;">Name</label>
+                        <input type="text" class="form-control custom-width" id="editUserName" name="name"
+                               placeholder="Name">
                     </div>
                     <div class="mb-3 form-group-center">
                         <label for="editUserUsername" class="form-label text-center-custom" style="font-weight: bold;">Username</label>
-                        <input type="text" class="form-control custom-width" id="editUserUsername" name="username" placeholder="Username">
+                        <input type="text" class="form-control custom-width" id="editUserUsername" name="username"
+                               placeholder="Username">
                     </div>
                     <div class="mb-3 form-group-center">
                         <label for="editUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
-                        <input type="text" class="form-control custom-width" id="editUserEmail" name="email" placeholder="Email">
+                        <input type="text" class="form-control custom-width" id="editUserEmail" name="email"
+                               placeholder="Email">
                     </div>
                     <input type="hidden" name="hiddenPassword" id="editUserHiddenPassword"/>
                     <div class="mb-3 form-group-center">
                         <label for="editUserPassword" class="form-label text-center-custom" style="font-weight: bold;">Password</label>
-                        <input type="password" class="form-control custom-width" id="editUserPassword" name="password" placeholder="Password">
+                        <input type="password" class="form-control custom-width" id="editUserPassword" name="password"
+                               placeholder="Password">
                     </div>
 
                     <div class="mb-3 form-group-center">
-                        <label for="editUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
+                        <label for="editUserRole" class="form-label text-center-custom"
+                               style="font-weight: bold;">Role</label>
                         <select class="form-select" id="editUserRole" multiple>
                             <option value="USER">USER</option>
                             <option value="ADMIN">ADMIN</option>
@@ -194,24 +215,32 @@
                 <form id="deleteUserForm">
                     <input type="hidden" id="deleteUserId" name="id"/>
                     <div class="mb-3 form-group-center">
-                        <label for="deleteUserIdReadOnly" class="form-label text-center-custom" style="font-weight: bold;">ID</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserIdReadOnly" name="id" readonly >
+                        <label for="deleteUserIdReadOnly" class="form-label text-center-custom"
+                               style="font-weight: bold;">ID</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserIdReadOnly" name="id"
+                               readonly>
                     </div>
                     <div class="mb-3 form-group-center">
                         <label for="deleteUserName" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserName" name="name" placeholder="Name" readonly>
+                        <input type="text" class="form-control custom-width" id="deleteUserName" name="name"
+                               placeholder="Name" readonly>
                     </div>
                     <div class="mb-3 form-group-center">
-                        <label for="deleteUserUsername" class="form-label text-center-custom" style="font-weight: bold;">Username</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserUsername" name="username" placeholder="Username" readonly>
+                        <label for="deleteUserUsername" class="form-label text-center-custom"
+                               style="font-weight: bold;">Username</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserUsername" name="username"
+                               placeholder="Username" readonly>
                     </div>
                     <div class="mb-3 form-group-center">
                         <label for="deleteUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserEmail" name="email" placeholder="Email" readonly>
+                        <input type="text" class="form-control custom-width" id="deleteUserEmail" name="email"
+                               placeholder="Email" readonly>
                     </div>
                     <div class="mb-3 form-group-center">
-                        <label for="deleteUserPassword" class="form-label text-center-custom" style="font-weight: bold;">Password</label>
-                        <input type="password" class="form-control custom-width" id="deleteUserPassword" name="password" placeholder="Password" readonly>
+                        <label for="deleteUserPassword" class="form-label text-center-custom"
+                               style="font-weight: bold;">Password</label>
+                        <input type="password" class="form-control custom-width" id="deleteUserPassword" name="password"
+                               placeholder="Password" readonly>
                     </div>
 
                     <div class="mb-3 form-group-center">

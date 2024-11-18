@@ -30,14 +30,15 @@
 
             const row = document.createElement('tr');
             row.innerHTML = `
-        <td>${user.id}</td>
-        <td>${user.name}</td>
-        <td>${user.email}</td>
-        <td>${user.username}</td>
-        <td>${user.roles.map(role => role.roleName).join(', ')}</td>
-    `;
+    <td>${user.id}</td>
+    <td>${user.name}</td>
+    <td>${user.email}</td>
+    <td>${user.username}</td>
+    <td>${user.roles.map(role => role.roleName).join(', ')}</td>
+`;
             tableBody.appendChild(row);
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             loadCurrentUser();
         });
@@ -60,7 +61,8 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav flex-column nav-pills me-3">
-                        <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
+                        <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                           role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
                     </li>
                 </ul>
             </div>
@@ -68,7 +70,8 @@
 
         <div class="col-md-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                     aria-labelledby="v-pills-profile-tab">
                     <h1>User information-page</h1>
                     <h2 style="margin: 15px; padding: 10px;">About user</h2>
                     <table class="table table-striped">

@@ -1,10 +1,11 @@
 package ru.kata.spring.boot_security.demo.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import java.util.List;
-
 
 
 @Entity

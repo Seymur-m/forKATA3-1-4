@@ -7,22 +7,22 @@ function createTable(users) {
         const row = document.createElement('tr');
 
         row.innerHTML = `
-        <td>${user.id}</td>
-        <td>${user.name}</td>
-        <td>${user.email}</td>
-        <td>${user.username}</td>
-        <td>${user.roles.map(role => role.roleName).join(', ')}</td>
-        <td>
-            <button type="button" class="btn bg-info text-white edit-button" data-id="${user.id}">
-                Edit
-            </button>
-        </td>
-        <td>
-            <button type="button" class="btn bg-danger text-white delete-button" data-id="${user.id}">
-                Delete
-            </button>
-        </td>
-    `;
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.username}</td>
+            <td>${user.roles.map(role => role.roleName).join(', ')}</td>
+            <td>
+                <button type="button" class="btn bg-info text-white edit-button" data-id="${user.id}">
+                    Edit
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn bg-danger text-white delete-button" data-id="${user.id}">
+                    Delete
+                </button>
+            </td>
+        `;
 
         tableBody.appendChild(row);
     });
@@ -76,7 +76,6 @@ async function loadCurrentUser() {
         console.error('Произошла ошибка:', error);
     }
 }
-
 function createCurrentUserTable(user) {
     const tableBody = document.getElementById('current-user-table-body');
 
@@ -84,15 +83,20 @@ function createCurrentUserTable(user) {
 
     const row = document.createElement('tr');
     row.innerHTML = `
-    <td>${user.id}</td>
-    <td>${user.name}</td>
-    <td>${user.email}</td>
-    <td>${user.username}</td>
-    <td>${user.roles.map(role => role.roleName).join(', ')}</td>
-`;
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        <td>${user.username}</td>
+        <td>${user.roles.map(role => role.roleName).join(', ')}</td>
+    `;
 
     tableBody.appendChild(row);
 }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     loadCurrentUser();
+// });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('userForm').addEventListener('submit', async function (event) {
@@ -147,6 +151,57 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+// async function openDeleteModal(userId) {
+//     try {
+//         const response = await fetch(`/admin/rest/${userId}`);
+//         const user = await response.json();
+//
+//         document.getElementById('deleteUserId').value = user.id;
+//         document.getElementById('deleteUserIdReadOnly').value = user.id;
+//         document.getElementById('deleteUserName').value = user.name;
+//         document.getElementById('deleteUserUsername').value = user.username;
+//         document.getElementById('deleteUserEmail').value = user.email;
+//         document.getElementById('deleteUserPassword').value = user.password;
+//         document.getElementById('deleteUserRole').value = user.roles[0].roleName;
+//
+//         $('#deleteUserModal').modal('show');
+//     } catch (error) {
+//         console.error('Ошибка при получении данных пользователя:', error);
+//     }
+// }
+// document.getElementById('deleteUserForm').addEventListener('submit', async function (event) {
+//     event.preventDefault();
+//
+//     const Id = document.getElementById('deleteUserId').value;
+//
+//     try {
+//         const response = await fetch(`/admin/rest/delete/${Id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         });
+//
+//         if (response.ok) {
+//             $('#deleteUserModal').modal('hide');
+//             const targetTab = document.querySelector('#home-tab');
+//             const bootstrapTab = new bootstrap.Tab(targetTab);
+//             updateUsers();
+//             bootstrapTab.show();
+//         } else {
+//             throw new Error('Ошибка при обновлении пользователя');
+//         }
+//     } catch (error) {
+//         console.error('Ошибка при обновлении пользователя:', error);
+//         alert('Произошла ошибка. Попробуйте снова.');
+//     }
+// });
+//
+
+
+
 async function openEditModal(userId) {
     try {
         const response = await fetch(`/admin/rest/${userId}`);
@@ -165,7 +220,6 @@ async function openEditModal(userId) {
         console.error('Ошибка при получении данных пользователя:', error);
     }
 }
-
 document.getElementById('editUserForm').addEventListener('submit', async function (event) {
     event.preventDefault(); // Предотвращаем стандартное поведение формы
 
@@ -223,11 +277,14 @@ function createCurrentUserTable(user) {
 
     const row = document.createElement('tr');
     row.innerHTML = `
-    <td>${user.id}</td>
-    <td>${user.name}</td>
-    <td>${user.email}</td>
-    <td>${user.username}</td>
-    <td>${user.roles.map(role => role.roleName).join(', ')}</td>
-`;
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        <td>${user.username}</td>
+        <td>${user.roles.map(role => role.roleName).join(', ')}</td>
+    `;
     tableBody.appendChild(row);
 }
+// document.addEventListener('DOMContentLoaded', () => {
+//     loadCurrentUser();
+// });
