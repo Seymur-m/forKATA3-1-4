@@ -7,7 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
+import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.List;
 
@@ -15,35 +15,38 @@ import java.util.List;
 public class RestUserController {
 
     @Autowired
-    private UserServiceImpl userServiceImpl;
+    private UserService userService;
+
 
     @GetMapping("/admin/rest/")
     public List<User> usersAndCurrentUser() {
-        return userServiceImpl.findAll();
+        return userService.findAll();
     }
 
     @GetMapping("/admin/rest/{id}")
     public User forAdmin(@PathVariable Long id) {
-        return userServiceImpl.findById(id);
+        return userService.findById(id);
     }
 
     @GetMapping("/user/rest/")
     public User forUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
-        return (User) userServiceImpl.loadUserByUsername(userName);
+        return (User) userService.loadUserByUsername(userName);
     }
 
 
     @PostMapping("/admin/rest/save")
     public HttpStatus saveUser(@RequestBody User user) {
-        userServiceImpl.saveUserWithRole(user);
+        userService.saveUserWithRole(user);
         return HttpStatus.OK;
     }
 
     @DeleteMapping("/admin/rest/delete/{id}")
     public HttpStatus deleteUser(@PathVariable Long id) {
-        userServiceImpl.delete(id);
+        userService.delete(id);
         return HttpStatus.OK;
     }
 }
+
+

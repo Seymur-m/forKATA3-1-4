@@ -37,6 +37,15 @@ public class UserServiceImpl implements UserService {
     public void saveUserWithRole(User user) {
         if (user.getId() == null) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
+        } else {
+            User existingUser = userRepository.findById(user.getId()).orElseThrow(() ->
+                    new UsernameNotFoundException("User not found"));
+
+            if (!user.getPassword().equals(existingUser.getPassword())) {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+            } else {
+                user.setPassword(existingUser.getPassword());
+            }
         }
 
         List<Role> roles = user.getRoles();
@@ -53,6 +62,7 @@ public class UserServiceImpl implements UserService {
         user.setRoles(roles);
         userRepository.save(user);
     }
+
 
     @Transactional(readOnly = true)
     public User findById(Long id) {

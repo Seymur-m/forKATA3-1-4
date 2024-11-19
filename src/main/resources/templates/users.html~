@@ -1,18 +1,379 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>User List</title>-->
+<!--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        html, body {-->
+<!--            height: 100%;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        body {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            min-height: 100vh; /* Минимальная высота на весь экран */-->
+<!--        }-->
+
+<!--        .sidebar {-->
+<!--            height: 100vh; /* Высота на весь экран */-->
+<!--        }-->
+
+<!--        .row {-->
+<!--            display: flex;-->
+<!--        }-->
+
+<!--        .col-md-3 {-->
+<!--            background-color: #f8f9fa;-->
+<!--        }-->
+<!--        /* Ваши существующие стили */-->
+<!--        .nav-pills .nav-link.active {-->
+<!--            background-color: #007bff; /* цвет primary */-->
+<!--            color: white;-->
+<!--        }-->
+
+<!--        .text-center-custom {-->
+<!--            text-align: center;-->
+<!--            display: block; /* Чтобы label занимал всю доступную ширину */-->
+<!--            width: 100%;-->
+<!--            height: 100%;     /* Чтобы label занимал всю доступную ширину */-->
+<!--        }-->
+
+<!--        .form-group-center {-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        .custom-width {-->
+<!--            display: inline-block; /* Чтобы поля были выровнены по центру */-->
+<!--            width: max-content;/* Установите желаемую ширину полей */-->
+<!--            height: max-content;/* Установите желаемую ширину полей */-->
+<!--        }-->
+<!--    </style>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-expand-xl navbar-dark bg-dark text-white">-->
+<!--    <div class="container-fluid">-->
+<!--        <span id="user-info"></span>-->
+
+<!--        <div class="d-flex ms-auto">-->
+<!--            <form th:action="@{/logout}" method="post">-->
+<!--                <button type="submit" class="btn btn-light" style="margin-right: 10px;">Logout</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+<!--<div class="container-fluid">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar">-->
+<!--            <div class="position-sticky pt-3">-->
+<!--                <ul class="nav flex-column">-->
+<!--                    <li class="nav flex-column nav-pills me-3">-->
+<!--                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"-->
+<!--                           role="tab" aria-controls="v-pills-home" aria-selected="true">Admin</a>-->
+<!--                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"-->
+<!--                           role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="col-md-9">-->
+<!--            <div class="tab-content" id="v-pills-tabContent">-->
+<!--                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"-->
+<!--                     aria-labelledby="v-pills-home-tab">-->
+<!--                    <h1>Admin Panel</h1>-->
+<!--                    <div class="card">-->
+<!--                        <div class="card-header">-->
+<!--                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">-->
+<!--                                <li class="nav-item" role="presentation">-->
+<!--                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"-->
+<!--                                       aria-controls="home" aria-selected="true">Users table</a>-->
+<!--                                </li>-->
+<!--                                <li class="nav-item" role="presentation">-->
+<!--                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"-->
+<!--                                       aria-controls="profile" aria-selected="false">New User</a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <div class="card-body">-->
+<!--                            <div class="tab-content" id="myTabContent">-->
+<!--                                <div class="tab-pane fade show active" id="home" role="tabpanel"-->
+<!--                                     aria-labelledby="home-tab">-->
+<!--                                    <h1>All Users</h1>-->
+<!--                                    <table class="table table-striped">-->
+<!--                                        <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="col">ID</th>-->
+<!--                                            <th scope="col">Name</th>-->
+<!--                                            <th scope="col">Email</th>-->
+<!--                                            <th scope="col">Username</th>-->
+<!--                                            <th scope="col">Roles</th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody id="user-table-body">-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">-->
+<!--                                    <form id="userForm">-->
+<!--                                        <h3>Add new user</h3>-->
+<!--                                        <input type="hidden" id="userId"/>-->
+
+<!--                                        <div class="mb-3 form-group-center">-->
+<!--                                            <label for="setUserName" class="form-label text-center-custom"-->
+<!--                                                   style="font-weight: bold;">Name</label>-->
+<!--                                            <input type="text" class="form-control custom-width" id="setUserName"-->
+<!--                                                   name="name" placeholder="Name">-->
+<!--                                        </div>-->
+
+<!--                                        <div class="mb-3 form-group-center">-->
+<!--                                            <label for="setUserUsername" class="form-label text-center-custom"-->
+<!--                                                   style="font-weight: bold;">Username</label>-->
+<!--                                            <input type="text" class="form-control custom-width" id="setUserUsername"-->
+<!--                                                   name="username" placeholder="UserName">-->
+<!--                                        </div>-->
+
+<!--                                        <div class="mb-3 form-group-center">-->
+<!--                                            <label for="setUserEmail" class="form-label text-center-custom"-->
+<!--                                                   style="font-weight: bold;">Email</label>-->
+<!--                                            <input type="text" class="form-control custom-width" id="setUserEmail"-->
+<!--                                                   name="email" placeholder="Email">-->
+<!--                                        </div>-->
+
+<!--                                        <div class="mb-3 form-group-center">-->
+<!--                                            <label for="setUserPassword" class="form-label text-center-custom"-->
+<!--                                                   style="font-weight: bold;">Password</label>-->
+<!--                                            <input type="password" class="form-control custom-width"-->
+<!--                                                   id="setUserPassword" name="password" placeholder="Password">-->
+<!--                                        </div>-->
+
+<!--                                        <div class="mb-3 form-group-center">-->
+<!--                                            <label for="setUserRole" class="form-label text-center-custom"-->
+<!--                                                   style="font-weight: bold;">Role</label>-->
+<!--                                            <select class="form-select" id="setUserRole" name="role" multiple>-->
+<!--                                                <option value="USER">USER</option>-->
+<!--                                                <option value="ADMIN">ADMIN</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="d-flex justify-content-center">-->
+<!--                                            <button type="submit" class="btn btn-success">Add new user</button>-->
+<!--                                        </div>-->
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">-->
+<!--                    <h1>User information-page</h1>-->
+<!--                    <h2 style="margin: 15px; padding: 10px;">About user</h2>-->
+<!--                    <table class="table table-striped">-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th scope="col">ID</th>-->
+<!--                            <th scope="col">Name</th>-->
+<!--                            <th scope="col">Email</th>-->
+<!--                            <th scope="col">UserName</th>-->
+<!--                            <th scope="col">Role</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody id="current-user-table-body">-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form id="editUserForm">-->
+<!--                    <input type="hidden" id="editUserId" name="id"/>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="editUserIdReadOnly" class="form-label text-center-custom"-->
+<!--                               style="font-weight: bold;">ID</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="editUserIdReadOnly" name="id" readonly>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="editUserName" class="form-label text-center-custom"-->
+<!--                               style="font-weight: bold;">Name</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="editUserName" name="name"-->
+<!--                               placeholder="Name">-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="editUserUsername" class="form-label text-center-custom" style="font-weight: bold;">Username</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="editUserUsername" name="username"-->
+<!--                               placeholder="Username">-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="editUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="editUserEmail" name="email"-->
+<!--                               placeholder="Email">-->
+<!--                    </div>-->
+<!--                    <input type="hidden" name="hiddenPassword" id="editUserHiddenPassword"/>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="editUserPassword" class="form-label text-center-custom" style="font-weight: bold;">Password</label>-->
+<!--                        <input type="password" class="form-control custom-width" id="editUserPassword" name="password"-->
+<!--                               placeholder="Password">-->
+<!--                    </div>-->
+
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="editUserRole" class="form-label text-center-custom"-->
+<!--                               style="font-weight: bold;">Role</label>-->
+<!--                        <select class="form-select" id="editUserRole" multiple>-->
+<!--                            <option value="USER">USER</option>-->
+<!--                            <option value="ADMIN">ADMIN</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex justify-content-end">-->
+<!--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                        <button type="submit" class="btn btn-primary">Save changes</button>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="deleteUserModalLabel">Edit User</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form id="deleteUserForm">-->
+<!--                    <input type="hidden" id="deleteUserId" name="id"/>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="deleteUserIdReadOnly" class="form-label text-center-custom"-->
+<!--                               style="font-weight: bold;">ID</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="deleteUserIdReadOnly" name="id"-->
+<!--                               readonly>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="deleteUserName" class="form-label text-center-custom" style="font-weight: bold;">Name</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="deleteUserName" name="name"-->
+<!--                               placeholder="Name" readonly>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="deleteUserUsername" class="form-label text-center-custom"-->
+<!--                               style="font-weight: bold;">Username</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="deleteUserUsername" name="username"-->
+<!--                               placeholder="Username" readonly>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="deleteUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="deleteUserEmail" name="email"-->
+<!--                               placeholder="Email" readonly>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="deleteUserPassword" class="form-label text-center-custom"-->
+<!--                               style="font-weight: bold;">Password</label>-->
+<!--                        <input type="password" class="form-control custom-width" id="deleteUserPassword" name="password"-->
+<!--                               placeholder="Password" readonly>-->
+<!--                    </div>-->
+
+<!--                    <div class="mb-3 form-group-center">-->
+<!--                        <label for="deleteUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>-->
+<!--                        <input type="text" class="form-control custom-width" id="deleteUserRole" name="role" readonly>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex justify-content-end">-->
+<!--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                        <button type="submit" class="btn btn-danger">Delete</button>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script src="/static.js"></script>-->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <title>Admin Panel with Vertical Tabs</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Минимальная высота на весь экран */
+        }
 
+        .sidebar {
+            height: 100vh; /* Высота на весь экран */
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .col-md-3 {
+            background-color: #f8f9fa;
+        }
+        /* Ваши существующие стили */
+        .nav-pills .nav-link.active {
+            background-color: #007bff; /* цвет primary */
+            color: white;
+        }
+
+        .text-center-custom {
+            text-align: center;
+            display: block; /* Чтобы label занимал всю доступную ширину */
+            width: 100%;
+            height: 100%;     /* Чтобы label занимал всю доступную ширину */
+        }
+
+        .form-group-center {
+            text-align: center;
+        }
+
+        .custom-width {
+            display: inline-block; /* Чтобы поля были выровнены по центру */
+            width: max-content;/* Установите желаемую ширину полей */
+            height: max-content;/* Установите желаемую ширину полей */
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark text-white">
     <div class="container-fluid">
-        <span id="user-info"></span>
+        <!-- Отображение email и ролей пользователя -->
+        <span th:text="${currentuser.email} + ' with roles: ' + ${currentuser.roles.get(0)}"></span>
 
+        <!-- Кнопка выхода -->
         <div class="d-flex ms-auto">
             <form th:action="@{/logout}" method="post">
                 <button type="submit" class="btn btn-light" style="margin-right: 10px;">Logout</button>
@@ -22,41 +383,39 @@
 </nav>
 <div class="container-fluid">
     <div class="row">
+        <!-- Боковые вкладки -->
         <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav flex-column nav-pills me-3">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
-                           role="tab" aria-controls="v-pills-home" aria-selected="true">Admin</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
-                           role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
+                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Admin</a>
+                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">User</a>
                     </li>
                 </ul>
             </div>
         </div>
 
+        <!-- Контент для вкладок -->
         <div class="col-md-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                     aria-labelledby="v-pills-home-tab">
+                <!-- Вкладка Home -->
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <h1>Admin Panel</h1>
+                    <!-- Карточка с внутренними вкладками для Home -->
                     <div class="card">
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                       aria-controls="home" aria-selected="true">Users table</a>
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Users table</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                       aria-controls="profile" aria-selected="false">New User</a>
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">New User</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                     aria-labelledby="home-tab">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <h1>All Users</h1>
                                     <table class="table table-striped">
                                         <thead>
@@ -64,51 +423,63 @@
                                             <th scope="col">ID</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Roles</th>
+                                            <th scope="col">UserName</th>
+                                            <th scope="col">Role</th>
+                                            <th scope="col">Edit</th>
+                                            <th scope="col">Delete</th>
                                         </tr>
                                         </thead>
-                                        <tbody id="user-table-body">
+                                        <tbody>
+                                        <tr th:each="user : ${listUsers}">
+                                            <th scope="row" th:text="${user.id}">1</th>
+                                            <td th:text="${user.name}">Mark</td>
+                                            <td th:text="${user.email}">Otto</td>
+                                            <td th:text="${user.username}">@mdo</td>
+                                            <td th:text="${user.roles.get(0).toString()}">@mdo</td>
+                                            <td>
+                                                <button type="button" class="btn button bg-info text-white" data-toggle="modal"
+                                                        th:data-target="'#editUserModal' + ${user.id}"
+                                                        th:data-user-id="${user.id}">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn button bg-danger text-white" data-toggle="modal"
+                                                        th:data-target="'#deleteUserModal' + ${user.id}"
+                                                        th:data-user-id="${user.id}">
+                                                    Delete
+                                                </button>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                    <form id="userForm">
+                                    <form th:action="@{/admin/save}" method="post">
                                         <h3>Add new user</h3>
-                                        <input type="hidden" id="userId"/>
-
+                                        <input type="hidden" th:field="*{user.id}"/>
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserName" class="form-label text-center-custom"
-                                                   style="font-weight: bold;">Name</label>
-                                            <input type="text" class="form-control custom-width" id="setUserName"
-                                                   name="name" placeholder="Name">
+                                            <label for="setUserName" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
+                                            <input type="text" class="form-control custom-width" id="setUserName" name="name"
+                                                   th:field="*{user.name}" placeholder="Name">
                                         </div>
-
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserUsername" class="form-label text-center-custom"
-                                                   style="font-weight: bold;">Username</label>
-                                            <input type="text" class="form-control custom-width" id="setUserUsername"
-                                                   name="username" placeholder="UserName">
+                                            <label for="setUserUsername" class="form-label text-center-custom" style="font-weight: bold;">Username</label>
+                                            <input type="text" class="form-control custom-width" id="setUserUsername" name="username"
+                                                   th:field="*{user.username}" placeholder="UserName">
                                         </div>
-
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserEmail" class="form-label text-center-custom"
-                                                   style="font-weight: bold;">Email</label>
-                                            <input type="text" class="form-control custom-width" id="setUserEmail"
-                                                   name="email" placeholder="Email">
+                                            <label for="setUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
+                                            <input type="text" class="form-control custom-width" id="setUserEmail" name="email"
+                                                   th:field="*{user.email}" placeholder="Email">
                                         </div>
-
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserPassword" class="form-label text-center-custom"
-                                                   style="font-weight: bold;">Password</label>
-                                            <input type="password" class="form-control custom-width"
-                                                   id="setUserPassword" name="password" placeholder="Password">
+                                            <label for="setUserPassword" class="form-label text-center-custom" style="font-weight: bold;">Password</label>
+                                            <input type="password" class="form-control custom-width" id="setUserPassword" name="password"
+                                                   th:field="*{user.password}" placeholder="Password">
                                         </div>
-
                                         <div class="mb-3 form-group-center">
-                                            <label for="setUserRole" class="form-label text-center-custom"
-                                                   style="font-weight: bold;">Role</label>
-                                            <select class="form-select" id="setUserRole" name="role" multiple>
+                                            <label for="setUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
+                                            <select class="form-select" id="setUserRole" th:field="*{role.roleName}" multiple style="width: 200px; height: 100px; padding: 5px;">
                                                 <option value="USER">USER</option>
                                                 <option value="ADMIN">ADMIN</option>
                                             </select>
@@ -122,6 +493,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Вкладка Profile -->
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <h1>User information-page</h1>
                     <h2 style="margin: 15px; padding: 10px;">About user</h2>
@@ -135,7 +508,12 @@
                             <th scope="col">Role</th>
                         </tr>
                         </thead>
-                        <tbody id="current-user-table-body">
+                        <tbody>
+                        <th scope="row" th:text="${currentuser.id}">1</th>
+                        <td th:text="${currentuser.name}">Mark</td>
+                        <td th:text="${currentuser.email}">Otto</td>
+                        <td th:text="${currentuser.username}">@mdo</td>
+                        <td th:text="${currentuser.roles.get(0).toString()}">@mdo</td>
                         </tbody>
                     </table>
                 </div>
@@ -144,57 +522,60 @@
     </div>
 </div>
 
-<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+<!--Модальное окно для изменения данных пользователя-->
+<div th:each="user : ${listUsers}" class="modal fade" th:id="'editUserModal' + ${user.id}" tabindex="-1"
+     aria-labelledby="editUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                <h5 class="modal-title" th:id="'editUserModalLabel' + ${user.id}"
+                    th:text="'Edit User' + ' ' + ${user.id}">
+                    Edit User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editUserForm">
-                    <input type="hidden" id="editUserId" name="id"/>
-                    <div class="mb-3 form-group-center">
-                        <label for="editUserIdReadOnly" class="form-label text-center-custom"
-                               style="font-weight: bold;">ID</label>
-                        <input type="text" class="form-control custom-width" id="editUserIdReadOnly" name="id" readonly>
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="editUserName" class="form-label text-center-custom"
-                               style="font-weight: bold;">Name</label>
-                        <input type="text" class="form-control custom-width" id="editUserName" name="name"
-                               placeholder="Name">
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="editUserUsername" class="form-label text-center-custom" style="font-weight: bold;">Username</label>
-                        <input type="text" class="form-control custom-width" id="editUserUsername" name="username"
-                               placeholder="Username">
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="editUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
-                        <input type="text" class="form-control custom-width" id="editUserEmail" name="email"
-                               placeholder="Email">
-                    </div>
-                    <input type="hidden" name="hiddenPassword" id="editUserHiddenPassword"/>
-                    <div class="mb-3 form-group-center">
-                        <label for="editUserPassword" class="form-label text-center-custom" style="font-weight: bold;">Password</label>
-                        <input type="password" class="form-control custom-width" id="editUserPassword" name="password"
-                               placeholder="Password">
-                    </div>
+                <form th:action="@{/admin/save}" method="post">
+                    <!-- Скрытое поле для ID -->
+                    <input type="hidden" name="id" th:value="${user.id}"/>
 
+                    <!-- Поле для отображения ID -->
                     <div class="mb-3 form-group-center">
-                        <label for="editUserRole" class="form-label text-center-custom"
-                               style="font-weight: bold;">Role</label>
-                        <select class="form-select" id="editUserRole" multiple>
+                        <label for="userId + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">ID</label>
+                        <input type="text" class="form-control custom-width" id="userId + ${user.id}" name="id"
+                               th:value="${user.id}" readonly>
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="userName + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
+                        <input type="text" class="form-control custom-width" id="userName + ${user.id}" name="name"
+                               th:value="${user.name}">
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="userUsername + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">UserName</label>
+                        <input type="text" class="form-control custom-width" id="userUsername + ${user.id}" name="username"
+                               th:value="${user.username}">
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="userEmail + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
+                        <input type="text" class="form-control custom-width" id="userEmail + ${user.id}" name="email"
+                               th:value="${user.email}">
+                    </div>
+                    <input type="hidden" name="id" th:value="${user.password}"/>
+                    <div class="mb-3 form-group-center">
+                        <label for="userPassword + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">Password</label>
+                        <input type="password" class="form-control custom-width" id="userPassword + ${user.id}" name="password">
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="editUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
+                        <select class="form-select" id="editUserRole" th:field="*{role.roleName}" multiple style="width: 200px; height: 100px; padding: 5px;">
                             <option value="USER">USER</option>
                             <option value="ADMIN">ADMIN</option>
                         </select>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" style="margin-right: 10px;" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
             </div>
@@ -202,53 +583,53 @@
     </div>
 </div>
 
-<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+<!-- Модальное окно с удалением пользователя -->
+<div th:each="user : ${listUsers}" class="modal fade" th:id="'deleteUserModal' + ${user.id}" tabindex="-1"
+     aria-labelledby="editUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteUserModalLabel">Edit User</h5>
+                <h5 class="modal-title" th:id="'editUserModalLabel' + ${user.id}"
+                    th:text="'Edit User' + ' ' + ${user.id}">
+                    Edit User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="deleteUserForm">
-                    <input type="hidden" id="deleteUserId" name="id"/>
-                    <div class="mb-3 form-group-center">
-                        <label for="deleteUserIdReadOnly" class="form-label text-center-custom"
-                               style="font-weight: bold;">ID</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserIdReadOnly" name="id"
-                               readonly>
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="deleteUserName" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserName" name="name"
-                               placeholder="Name" readonly>
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="deleteUserUsername" class="form-label text-center-custom"
-                               style="font-weight: bold;">Username</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserUsername" name="username"
-                               placeholder="Username" readonly>
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="deleteUserEmail" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserEmail" name="email"
-                               placeholder="Email" readonly>
-                    </div>
-                    <div class="mb-3 form-group-center">
-                        <label for="deleteUserPassword" class="form-label text-center-custom"
-                               style="font-weight: bold;">Password</label>
-                        <input type="password" class="form-control custom-width" id="deleteUserPassword" name="password"
-                               placeholder="Password" readonly>
-                    </div>
+                <form th:action="@{/admin/delete}" method="post">
+                    <!-- Скрытое поле для ID -->
+                    <input type="hidden" name="id" th:value="${user.id}"/>
 
+                    <!-- Поле для отображения ID -->
                     <div class="mb-3 form-group-center">
-                        <label for="deleteUserRole" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
-                        <input type="text" class="form-control custom-width" id="deleteUserRole" name="role" readonly>
+                        <label for="deleteUserId + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">ID</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserId + ${user.id}" name="id"
+                               th:value="${user.id}" readonly>
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="deleteUserName + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">Name</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserName + ${user.id}" name="name"
+                               th:value="${user.name}" readonly>
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="deleteUserUsername + ${user.id}" class="form-label text-center-custom">UserName</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserUsername + ${user.id}" name="username"
+                               th:value="${user.username}" readonly>
+                    </div>
+                    <div class="mb-3 form-group-center">
+                        <label for="deleteUserEmail + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">Email</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserEmail + ${user.id}" name="email"
+                               th:value="${user.email}" readonly>
+                    </div>
+                    <input type="hidden" name="id" th:value="${user.password}"/>
+                    <div class="mb-3 form-group-center">
+                        <label for="deleteUserRole + ${user.id}" class="form-label text-center-custom" style="font-weight: bold;">Role</label>
+                        <input type="text" class="form-control custom-width" id="deleteUserRole + ${user.id}" name="role"
+                               th:value="${user.roles.get(0)}" readonly>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" style="margin-right: 10px;" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </form>
@@ -257,10 +638,22 @@
     </div>
 </div>
 
-<script src="/static.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('setUserRole').addEventListener('mousedown', function(e) {
+        e.preventDefault();
+
+        var select = this;
+        var scroll = select.scrollTop;
+
+        e.target.selected = !e.target.selected;
+
+        setTimeout(function() {select.scrollTop = scroll;}, 0);
+        select.focus();
+    }, false);
+</script>
 
 </body>
 </html>
